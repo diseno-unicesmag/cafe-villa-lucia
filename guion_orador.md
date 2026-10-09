@@ -14,7 +14,7 @@ Es solo para ensayar; la presentación no lo carga. Tiempo total: 5 minutos.
 ## 02 · Concepto de diseño (0:45 – 1:40)
 
 - **Ana María:** Lo primero fue preguntarnos qué queríamos destacar. En los apuntes salió así: aroma que da calor, calor que da hogar, y un hogar para compartir. Y ese hogar es la casa de tapia de la finca, que además ya aparece en sus empaques.
-- **Shamuel:** El stand no copia la casa, la simplifica y la deforma. Usamos tres figuras. Metáfora, porque el stand es la casa que recibe al visitante. Sinécdoque, que es cuando una parte nombra el todo: con un pilar, un alero y una ventana ya se entiende que es una casa. Y deformación, porque los techos y los volúmenes están corridos, así que se reconoce pero no es una copia. Los colores salen de la misma historia: el blanco cal de los muros, el vino tinto del uniforme, el rojo barro de la tetera y el café de la teja.
+- **Shamuel:** El stand no copia la casa, la simplifica y la deforma. Usamos tres figuras. Metáfora, porque el stand es la casa que recibe al visitante. Sinécdoque, que es cuando una parte nombra el todo: con un pilar, un alero y una ventana ya se entiende que es una casa. Y deformación, porque los techos y los volúmenes están corridos, así que se reconoce pero no es una copia. Los colores salen de la misma historia: el blanco crema de los muros, el vino tinto del uniforme, el rojo barro de la tetera y el café de la teja.
 
 ## 03 · Proceso formal (1:40 – 2:35)
 

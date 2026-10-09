@@ -253,7 +253,7 @@
   }
 
   /* ---------------- color: paleta Villa Lucía ----------------
-     Sale del boceto de color, de la casa real y de la marca: muros de cal, zócalo vino tinto
+     Sale del boceto de color, de la casa real y de la marca: muros blanco crema, zócalo vino tinto
      (el uniforme), postes en barro rojo (la tetera de cerámica), cubiertas y losas café tostado. */
   const PAL = {
     cal: 0xefe4cf, zocalo: 0x7a2330, barro: 0xb4472f, cubierta: 0x3d281d, losa: 0x4f3426,

@@ -326,3 +326,4 @@ body.exploring #wrap, body.exploring #chrome { opacity: 0; pointer-events: none;
 @media (prefers-reduced-motion: reduce) {
   .reveal, .slide { transition: none !important; }
 }
+.timer[hidden] { display: none; }

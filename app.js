@@ -354,8 +354,6 @@
     if (!ex.hidden) { if (k === 'Escape' || k.toLowerCase() === 'e') closeExplorer(); return; }
     if (k === 'ArrowRight' || k === 'PageDown') { go(cur + 1); e.preventDefault(); }
     else if (k === 'ArrowLeft' || k === 'PageUp') { go(cur - 1); e.preventDefault(); }
-    else if (k === ' ') { toggleTimer(); e.preventDefault(); }
-    else if (k.toLowerCase() === 'r') resetTimer();
     else if (k.toLowerCase() === 'e') openExplorer();
     else if (k.toLowerCase() === 'f') toggleFull();
     else if (k.toLowerCase() === 'm' && cur === 4) playAssembly();

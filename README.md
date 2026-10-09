@@ -10,10 +10,7 @@ Doble clic en `index.html` (Chrome o Edge). Funciona sin internet: Three.js est�
 | Tecla | Acción |
 |---|---|
 | → ← | Avanzar o retroceder diapositiva |
-| 1 – 6 | Ir a una diapositiva |
-| Espacio | Iniciar o pausar el cronómetro de 5:00 |
-| R | Reiniciar el cronómetro |
-| N | Notas del orador (guion minuto a minuto) |
+| 0 – 7 | Ir a una diapositiva |
 | E | Explorador 3D a pantalla completa |
 | F | Pantalla completa |
 | M | Repetir el montaje (en la diapositiva 4) |

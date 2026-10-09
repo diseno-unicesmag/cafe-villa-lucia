@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano de corte</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --fondo: #150f0b; --cal: #efe4cf; --cal-2: #cdbfa8; --mute: #8f816f; --oro: #c9a25a; --linea: rgba(239, 228, 207, .14); }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--fondo); color: var(--cal); font: 400 15px/1.55 Manrope, system-ui, sans-serif; padding: 44px 16px 60px; }
+  main { max-width: 1160px; margin: 0 auto; }
+  .kick { font: 600 12px Manrope, sans-serif; letter-spacing: .26em; text-transform: uppercase; color: var(--oro); margin: 0 0 10px; }
+  h1 { font: 300 clamp(34px, 5vw, 56px)/1.05 Fraunces, serif; margin: 0 0 14px; letter-spacing: -.01em; }
+  h1 em { color: var(--oro); }
+  .lead { max-width: 720px; color: var(--cal-2); margin: 0 0 36px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(520px, 100%), 1fr)); gap: 34px 30px; }
+  figure { margin: 0; }
+  figcaption { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 8px; margin-bottom: 10px; border-bottom: 1px solid var(--linea); font-size: 13px; color: var(--mute); }
+  figcaption b { font: 400 20px Fraunces, serif; color: var(--cal); }
+  svg { display: block; width: 100%; height: auto; }
+  .sheet { fill: rgba(239, 228, 207, .035); stroke: rgba(239, 228, 207, .35); stroke-width: 1; }
+  .cut { stroke: var(--cal); stroke-width: 1.1; fill: none; vector-effect: non-scaling-stroke; stroke-linecap: round; }
+  .num { fill: var(--oro); font: 600 13px Manrope, sans-serif; text-anchor: middle; dominant-baseline: middle; }
+  table { width: 100%; max-width: 620px; border-collapse: collapse; margin-top: 46px; font-size: 14px; }
+  th { text-align: left; font: 600 11px Manrope, sans-serif; letter-spacing: .2em; text-transform: uppercase; color: var(--oro); padding: 0 10px 10px 0; }
+  td { padding: 7px 10px 7px 0; border-top: 1px solid var(--linea); color: var(--cal-2); }
+  td:first-child { color: var(--oro); font-weight: 600; width: 36px; }
+  .note { margin-top: 22px; color: var(--mute); font-size: 13px; max-width: 720px; }
+  #gl { position: fixed; left: -10px; top: -10px; width: 2px; height: 2px; }
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas><div id="labels" hidden></div>
+<main>
+  <p class="kick">Café Villa Lucía · stand modular</p>
+  <h1>Plano de <em>corte</em></h1>
+  <p class="lead" id="lead">Triplex de pino de 25 mm.</p>
+  <div class="grid" id="sheets"></div>
+  <table id="list"><thead><tr><th>N.º</th><th>Pieza</th><th>Medida</th><th>Lámina</th></tr></thead><tbody></tbody></table>
+  <p class="note">Las piezas se acomodan por su rectángulo envolvente, con 8 mm entre ellas para la fresa. Un anidado fino de los contornos aprovecha todavía mejor el material, así que este es el número máximo de láminas.</p>
+</main>
+<script src="vendor/three.min.js"></script>
+<script src="assets/logo_data.js"></script>
+<script src="stand3d.js?v=87"></script>
+<script>
+(function () {
+  const S = window.Stand3D && window.Stand3D.init(document.getElementById('gl'), document.getElementById('labels'));
+  if (!S) { document.getElementById('lead').textContent = 'No se pudo cargar el modelo para calcular el plano.'; return; }
+  const NAME = { 'bod-fondo': 'Fondo de la bodega', 'bod-lado': 'Costado de la bodega', 'bod-frente': 'Frente de la bodega', muro: 'Muro',
+    losa: 'Losa', meson: 'Mesón', 'pil-l-z': 'Pilar en L, ala lateral', 'pil-l-x': 'Pilar en L, ala frontal', 'pil-t-alma': 'Pilar en T, alma',
+    'pil-t-ala': 'Pilar en T, ala', 'hastial-cu-i': 'Triángulo del techo mayor', 'hastial-cu-d': 'Triángulo del techo mayor',
+    'cubierta-t': 'Faldón trasero', 'cubierta-f': 'Faldón delantero', 'hastial-al-i': 'Triángulo del alero', 'hastial-al-d': 'Triángulo del alero',
+    'alero-t': 'Faldón trasero del alero', 'alero-f': 'Faldón delantero del alero', labio: 'Labio del alero' };
+  const SW = 2.44, SH = 1.22, GAP = 0.008, PX = 400;
+  const parts = S.cutlist().map((p, i) => Object.assign(p, { n: i + 1 }));
+  // estantes a lo largo de la lámina, de las piezas más anchas a las más angostas
+  const sheets = [];
+  [...parts].sort((a, b) => b.A - a.A).forEach(p => {
+    let ok = false;
+    for (const sh of sheets) {
+      for (const st of sh.shelves) if (p.A <= st.h + 1e-9 && st.x + p.L <= SW + 1e-9) { p.at = [st.x, st.y]; st.x += p.L + GAP; ok = true; break; }
+      if (ok) { p.sheet = sh; break; }
+      if (sh.y + p.A <= SH + 1e-9) { sh.shelves.push({ y: sh.y, h: p.A, x: p.L + GAP }); p.at = [0, sh.y]; sh.y += p.A + GAP; p.sheet = sh; ok = true; break; }
+    }
+    if (!ok) { const sh = { y: p.A + GAP, shelves: [{ y: 0, h: p.A, x: p.L + GAP }], items: [] }; sheets.push(sh); p.at = [0, 0]; p.sheet = sh; }
+    (p.sheet.items = p.sheet.items || []).push(p);
+  });
+  const f = v => (v * 100).toFixed(0);
+  const host = document.getElementById('sheets');
+  sheets.forEach((sh, k) => {
+    const ns = 'http://www.w3.org/2000/svg';
+    const fig = document.createElement('figure');
+    const used = sh.items.reduce((a, p) => a + p.L * p.A, 0) / (SW * SH);
+    fig.innerHTML = `<figcaption><b>Lámina ${k + 1}</b><span>${sh.items.length} piezas · ${Math.round(used * 100)} % ocupado</span></figcaption>`;
+    const svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', `-4 -4 ${SW * PX + 8} ${SH * PX + 8}`);
+    let html = `<rect class="sheet" x="0" y="0" width="${SW * PX}" height="${SH * PX}" rx="2"/>`;
+    sh.items.forEach(p => {
+      const [ox, oy] = p.at;
+      const d = p.segs.map(s => `M${((ox + s[0]) * PX).toFixed(1)} ${((oy + p.A - s[1]) * PX).toFixed(1)}L${((ox + s[2]) * PX).toFixed(1)} ${((oy + p.A - s[3]) * PX).toFixed(1)}`).join('');
+      html += `<path class="cut" d="${d}"/><text class="num" x="${(ox + p.L / 2) * PX}" y="${(oy + p.A / 2) * PX}">${p.n}</text>`;
+    });
+    svg.innerHTML = html; fig.appendChild(svg); host.appendChild(fig);
+  });
+  document.getElementById('lead').textContent =
+    `Triplex de pino de 25 mm. Las ${parts.length} tablas del stand salen de ${sheets.length} láminas de 1,22 × 2,44 m, cortadas en CNC con sus dientes y muescas. Cada número corresponde a la lista de abajo.`;
+  const tb = document.querySelector('#list tbody');
+  parts.forEach(p => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${p.n}</td><td>${NAME[p.id] || p.name}</td><td>${f(p.L)} × ${f(p.A)} cm</td><td>${sheets.indexOf(p.sheet) + 1}</td>`;
+    tb.appendChild(tr);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Sistema operativo
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+.DS_Store
+
+# Temporales de edición
+*.tmp
+*~

@@ -1,0 +1,9 @@
+Imágenes reales de las vistas.
+
+- vista_2.jpg es el render de la feria (copia de render_base_ia.jpg). Aparece en la Vista 2 (frontal):
+  después de pintarse el modelo, el render entra barriendo de izquierda a derecha con una línea dorada.
+  Haciendo clic en el recuadro se alterna entre el modelo 3D y el render.
+- Las vistas 1, 3 y 4 se quedan con el modelo 3D; no necesitan render.
+- Si algún día sale otro render bueno, se guarda aquí como vista_1.jpg, vista_3.jpg o vista_4.jpg (jpg, png o webp)
+  y la presentación lo usa sola. No hace falta que calce exacto con el modelo: el barrido lo disimula.
+- La carpeta "capturas" tiene las tomas exactas del modelo en 4:3 (2400 × 1800) por si se quieren usar de base.

@@ -22,7 +22,7 @@
   /* Escala real: un mueble-stand de feria de ~2 m de frente. La losa (1,740) queda como mostrador a ~1,02 m
      y el mesón (0,920) como repisa de exhibición a ~0,54 m. K0 es la escala con la que se encuadraron las cámaras. */
   const K = 1.0 / 1.70, K0 = 1.0 / 0.920;
-  const E = 0.025 / K;                 // espesor único de tablero: triplex de 25 mm
+  const E = 0.018 / K;                 // espesor único de tablero: triplex de pino radiata de 18 mm
   const A = 45 * Math.PI / 180;        // pendiente 45°: los faldones se encuentran a 90° en la cumbrera
   const CA = Math.cos(A), SA = Math.sin(A);
   const Y_MES = [0.920 - E, 0.920];    // mesón (cara superior a 1,00 m)

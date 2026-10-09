@@ -35,14 +35,14 @@
 <main>
   <p class="kick">Café Villa Lucía · stand modular</p>
   <h1>Plano de <em>corte</em></h1>
-  <p class="lead" id="lead">Triplex de pino de 25 mm.</p>
+  <p class="lead" id="lead">Triplex de pino radiata de 18 mm.</p>
   <div class="grid" id="sheets"></div>
   <table id="list"><thead><tr><th>N.º</th><th>Pieza</th><th>Medida</th><th>Lámina</th></tr></thead><tbody></tbody></table>
   <p class="note">Las piezas se acomodan por su rectángulo envolvente, con 8 mm entre ellas para la fresa. Un anidado fino de los contornos aprovecha todavía mejor el material, así que este es el número máximo de láminas.</p>
 </main>
 <script src="vendor/three.min.js"></script>
 <script src="assets/logo_data.js"></script>
-<script src="stand3d.js?v=87"></script>
+<script src="stand3d.js?v=89"></script>
 <script>
 (function () {
   const S = window.Stand3D && window.Stand3D.init(document.getElementById('gl'), document.getElementById('labels'));
@@ -84,7 +84,7 @@
     svg.innerHTML = html; fig.appendChild(svg); host.appendChild(fig);
   });
   document.getElementById('lead').textContent =
-    `Triplex de pino de 25 mm. Las ${parts.length} tablas del stand salen de ${sheets.length} láminas de 1,22 × 2,44 m, cortadas en CNC con sus dientes y muescas. Cada número corresponde a la lista de abajo.`;
+    `Triplex de pino radiata de 18 mm. Las ${parts.length} tablas del stand salen de ${sheets.length} láminas de 1,22 × 2,44 m, cortadas en CNC con sus dientes y muescas. Cada número corresponde a la lista de abajo.`;
   const tb = document.querySelector('#list tbody');
   parts.forEach(p => {
     const tr = document.createElement('tr');

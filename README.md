@@ -40,7 +40,7 @@ El modelo es paramétrico y está hecho con 24 tableros planos. Se reconstruyó 
 
 **Cómo se midió.** Se hicieron cortes en planta y sección del GLB. De ahí salieron los planos de cada tablero, la pendiente de 34,5° de ambas cubiertas y las posiciones de puerta, ventana, pilares, hastiales y labio.
 
-**Escala.** El GLB no trae unidades. La escala real la fija `K` en `stand3d.js` (hoy 1/1,70): el stand ocupa ≈ 1,97 × 1,32 m, mide ≈ 1,48 m a la cumbrera, la losa (mostrador) queda a 1,02 m y el mesón a 0,54 m. El tablero es triplex de 25 mm (`E` se deriva de esa medida real). Las cámaras se encuadraron con la escala anterior y se ajustan solas con `K`. El plano de corte está en `plano_de_corte.html`: 19 tableros en 4 láminas de 1,22 × 2,44 m.
+**Escala.** El GLB no trae unidades. La escala real la fija `K` en `stand3d.js` (hoy 1/1,70): el stand ocupa ≈ 1,97 × 1,32 m, mide ≈ 1,48 m a la cumbrera, la losa (mostrador) queda a 1,02 m y el mesón a 0,54 m. El tablero es triplex de pino radiata de 18 mm (`E` se deriva de esa medida real). Las cámaras se encuadraron con la escala anterior y se ajustan solas con `K`. El plano de corte está en `plano_de_corte.html`: 19 tableros en 4 láminas de 1,22 × 2,44 m.
 
 **Verificación.** Se compararon las siluetas ortogonales del modelo contra las del GLB con `_comparar.html` y `_diff.js`. La coincidencia (IoU) fue de 97 % de frente, 94 % de lado y 98 % en planta. La vista lateral baja porque el GLB tiene tirantes que, por decisión del diseño, se quitaron.
 

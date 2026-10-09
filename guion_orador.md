@@ -24,7 +24,7 @@ Es solo para ensayar; la presentación no lo carga. Tiempo total: 5 minutos.
 ## 04 · Aspectos clave para el diseño (2:35 – 3:35)
 
 - **Ana María:** Para diseñarlo tuvimos en cuenta que se sintiera el hogar y la historia de la familia, que la casa se reconociera sin ser una maqueta, los colores de la casa y de la marca, y lo que pasa en el stand: arriba, a un metro, está el mostrador donde se atiende y se da a probar el café; abajo, una repisa para exhibirlo, y la bodega guarda el inventario.
-- **Shamuel:** Y para construirlo: mide casi dos metros de frente, un metro y medio de alto, no hay que fijarlo al piso y lo arman dos personas. Son 19 tablas de triplex de 25 milímetros que salen de cuatro láminas, cortadas con router CNC. Cada tabla entra por un solo lado y la siguiente la deja trabada: primero la bodega, luego el muro, el mesón, la losa de una sola pieza, el pilar en L, el techo grande con sus triángulos, el alero y, al final, el pilar en T. No lleva ni un tornillo.
+- **Shamuel:** Y para construirlo: mide casi dos metros de frente, un metro y medio de alto, no hay que fijarlo al piso y lo arman dos personas. Son 19 tablas de triplex de pino de 18 milímetros que salen de cuatro láminas, cortadas con router CNC. Cada tabla entra por un solo lado y la siguiente la deja trabada: primero la bodega, luego el muro, el mesón, la losa de una sola pieza, el pilar en L, el techo grande con sus triángulos, el alero y, al final, el pilar en T. No lleva ni un tornillo.
 - (Si preguntan por el material, el botón del plano de corte abre las cuatro láminas con todas las piezas.)
 
 ## 05 · Vistas 1 y 2 (3:35 – 4:20)

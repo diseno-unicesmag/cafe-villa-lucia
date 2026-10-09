@@ -225,6 +225,11 @@ body.fs .cap-btn { display: none; }
 .s1.intro .s1-logo { opacity: 1 !important; transform: translate(var(--fx), var(--fy)) scale(var(--fk)) !important; transition: none !important; }
 .s1.fly .s1-logo { opacity: 1; transition: transform 1.25s cubic-bezier(.66, 0, .22, 1) !important; }
 .s1.intro .reveal:not(.s1-logo), .s1.fly .reveal:not(.s1-logo) { transition-delay: calc(var(--i, 0) * 75ms + 1050ms); }
+/* el encabezado y la línea de los datos no son .reveal: en la entrada desde la 00 también se animan */
+.s1.intro .sh { opacity: 0; transform: translateY(18px); transition: none; }
+.s1.fly .sh { transition: opacity .9s cubic-bezier(.2, .7, .2, 1) 1000ms, transform 1s cubic-bezier(.2, .7, .2, 1) 1000ms; }
+.s1.intro .stats { border-top-color: transparent; transition: none; }
+.s1.fly .stats { transition: border-top-color .9s ease 1250ms; }
 
 /* ===================== 7 · cierre ===================== */
 .s7-view { position: absolute; left: 760px; right: 0; top: 0; bottom: 110px; }
